@@ -1,0 +1,119 @@
+/*____________WHEEL____________*/
+.wheel {
+  border: 2px solid black;
+  border-radius: 50%;
+  margin-left: 50px;
+  position: absolute;
+  height: 55vw;
+  width: 55vw;
+  max-height: 500px;
+  max-width: 500px;
+  animation-name: wheel; /* linking the wheel animation to its element */
+  animation-duration: 10s; /* duration of animation */
+  animation-iteration-count: infinite; /* rules on iteration/repetition */
+  animation-timing-function: linear; /* animation's speed curve: start, middle, end: Default: cubic-bezier(0.25, 0.1, 0.25, 1.0), increases in velocity towards the middle of the animation, slowing back down at the end.*/
+}
+
+/*____________LINE____________*/
+.line {
+  background-color: black;
+  width: 50%;
+  height: 2px; /* remember, span elements with no content, won't display */
+  position: absolute; /* now it is a block element */
+  left: 50%;
+  top: 50%;
+  transform-origin: 0% 0%; /* changes the transform animation pivot point to top left; default is 50% 50% (center) two values = x(from the left) / y(from the top) axis */
+}
+
+.line:nth-of-type(2) {
+  /* number-th of this type */
+  transform: rotate(60deg); /* from its original position */
+}
+
+.line:nth-of-type(3) {
+  transform: rotate(120deg);
+}
+
+.line:nth-of-type(4) {
+  transform: rotate(180deg);
+}
+
+.line:nth-of-type(5) {
+  transform: rotate(240deg);
+}
+
+.line:nth-of-type(6) {
+  transform: rotate(300deg);
+}
+
+/*____________CABIN____________*/
+.cabin {
+  background-color: red;
+  width: 20%;
+  height: 20%; /* so far no content, so not displaying */
+  position: absolute;
+  border: 2px solid;
+  transform-origin: 50% 0%; /* x axis middle, 0 from the top [top center] */
+  animation: cabins 10s ease-in-out infinite; /* 4 animation properties in 1: Easy-in-out, slow at start and end, makes it look more natural movement */
+}
+
+.cabin:nth-of-type(1) {
+  right: -8.5%;
+  top: 50%;
+}
+
+.cabin:nth-of-type(2) {
+  right: 17%;
+  top: 93.5%;
+}
+
+.cabin:nth-of-type(3) {
+  right: 67%;
+  top: 93.5%;
+}
+
+.cabin:nth-of-type(4) {
+  left: -8.5%;
+  top: 50%;
+}
+
+.cabin:nth-of-type(5) {
+  left: 17%;
+  top: 7%;
+}
+
+.cabin:nth-of-type(6) {
+  right: 17%;
+  top: 7%;
+}
+
+/*____________ANIMATIONS____________*/
+
+@keyframes wheel {
+  /* keyframes give chonological steps of animations to elements */
+  0% {
+    /* at 0%, or immeditaly at the start */
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg); /* from 0-100 rotate 360deg */
+  }
+}
+
+@keyframes cabins {
+  0% {
+    transform: rotate(0deg);
+  }
+  25% {
+    background-color: yellow;
+  }
+  50% {
+    background-color: purple;
+  }
+  75% {
+    background-color: yellow;
+  }
+  100% {
+    transform: rotate(-360deg);
+  }
+}
